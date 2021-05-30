@@ -44,6 +44,7 @@
                             <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                         </form>
                         <a class="btn btn-info text-white btn-sm" href="{{ route('users.edit', [$user->id]) }}">Edit</a>
+                        <a href="{{ route('users.show', [$user->id]) }}" class="btn btn-primary btn-sm">Detail</a>
                     </td>
                 </tr>
             @endforeach
