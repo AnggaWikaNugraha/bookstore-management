@@ -1,7 +1,7 @@
 ### Gambaran Studi Kasus
 #### Dalam studi kasus ini kita akan membuat manajemen toko menggunakan Laravel
 
-#### Adapun manajemen toko ini akan menggunakan contoh toko yang menjual produk buku. Diharapkan pembelajar setelah mengikuti studi kasus ini akan bisa membuat sistem manajemen toko menggunakan Laravel. Adapun fitur-fitur yang akan dikembangkan antara lain:
+#### Adapun manajemen toko ini akan menggunakan contoh toko yang menjual produk buku. Adapun fitur-fitur yang akan dikembangkan antara lain:
 
 ##### Authentication User
 ##### Otorisasi User
@@ -10,7 +10,7 @@
 ##### Manajemen Kategori
 ##### Manajemen Order
 
-#### Pada studi kasus ini kita akan menerapkan pengetahuan yang kita pelajari di bab-bab sebelumnya seperti:
+#### Pada studi kasus ini menerapkan seperti:
 
 ##### Arsitektur Laravel
 ##### Perintah-perintah artisan
@@ -25,7 +25,7 @@
 ##### Soft Deletes
 ##### Layouts
 
-#### Selain itu kita juga akan belajar hal-hal yang belum kita bahas sebelumnya seperti:
+#### Selain itu , seperti:
 
 ##### Authentication dengan Auth Scaffolding
 ##### Hashing
