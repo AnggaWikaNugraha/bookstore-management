@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,7 +42,7 @@ class UserController extends Controller
         $new_user->address = $request->get('address');
         $new_user->phone = $request->get('phone');
         $new_user->email = $request->get('email');
-        $new_user->password = \Hash::make($request->get)('password');
+        $new_user->password = Hash::make($request->password);
 
         if($request->file('avatar')){
             // ambil nama gambar masukan kedalam folder avatar dengan visibility public. bisa di akses

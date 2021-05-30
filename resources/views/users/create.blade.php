@@ -5,6 +5,12 @@
 @section('content')
     <div class="col-md-8">
 
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
         <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{ route('users.store') }}"
             method="POST">
 
