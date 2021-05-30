@@ -11,12 +11,11 @@
             </div>
         @endif
 
-        <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{ route('users.update', [$user->id]) }}"
-            method="POST">
+        <form enctype="multipart/form-data" class="bg-white shadow-sm p-3"
+            action="{{ route('users.update', [$user->id]) }}" method="POST">
 
             @csrf
-
-            <input type="hidden" value="PUT" name="_method">
+            @method('PUT')
 
             <label for="name">Name</label>
             <input value="{{ $user->name }}" class="form-control" placeholder="Full Name" type="text" name="name"
@@ -63,7 +62,7 @@
             <br>
             <label for="address">Address</label>
             <textarea name="address" id="address" class="form-control">{{ $user->address }}
-                </textarea>
+                    </textarea>
             <br>
 
             <label for="avatar">Avatar image</label>
