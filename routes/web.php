@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view('auth.login');
 });
 
 Auth::routes();
+// ketika ada yg akses register berupa method get dan post akan redirect login
+Route::match(["GET", "POST"], "/register", function(){
+    return redirect("/login");
+})->name("register");
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
