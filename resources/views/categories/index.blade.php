@@ -43,7 +43,8 @@
                                 @endif
                             </td>
                             <td>
-                                [TODO: actions]
+                                <a href="{{ route('categories.edit', [$category->id]) }}" class="btn btn-info btn-sm"> Edit
+                                </a>
                             </td>
                         </tr>
                     @endforeach
