@@ -16,6 +16,17 @@
                     <a href="{{ route('books.create') }}" class="btn btn-primary">Create book</a>
                 </div>
             </div>
+            <form action="{{ route('books.index') }}">
+
+                <div class="input-group">
+                    <input name="keyword" type="text" value="{{ Request::get('keyword') }}" class="form-control"
+                        placeholder="Filter by title">
+                    <div class="input-group-append">
+                        <input type="submit" value="Filter" class="btn btn-primary">
+                    </div>
+                </div>
+
+            </form>
 
             <table class="table table-bordered table-stripped">
                 <thead>
