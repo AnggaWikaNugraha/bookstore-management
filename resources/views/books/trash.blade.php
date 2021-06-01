@@ -49,7 +49,12 @@
                             <td>{{ $book->stock }}</td>
                             <td>{{ $book->price }}</td>
                             <td>
-                                [TODO: actions]
+                                <form method="POST" action="{{ route('books.restore', [$book->id]) }}" class="d-inline">
+
+                                    @csrf
+
+                                    <input type="submit" value="Restore" class="btn btn-success" />
+                                </form>
                             </td>
                         </tr>
                     @endforeach
