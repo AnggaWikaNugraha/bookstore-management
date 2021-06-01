@@ -1,3 +1,4 @@
+## project book-store sisi admin, web untuk admin book-store
 # Gambaran Studi Kasus
 #### Dalam studi kasus ini kita akan membuat manajemen toko menggunakan Laravel
 
