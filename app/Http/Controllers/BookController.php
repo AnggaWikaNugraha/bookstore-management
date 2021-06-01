@@ -12,11 +12,17 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = \App\Models\Book::with('categories')->paginate(10);
+        $status = $request->get('status');
 
-        return view('books.index', ['books'=> $books]);
+        if($status){
+            $books = \App\Models\Book::with('categories')->where('status', strtoupper($status))->paginate(10);
+        } else {
+            $books = \App\Models\Book::with('categories')->paginate(10);
+        }
+
+        return view('books.index', ['books' => $books]);
     }
 
     /**
