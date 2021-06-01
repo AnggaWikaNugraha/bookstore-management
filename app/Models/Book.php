@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Book extends Model
 {
-    use HasFactory;
     use SoftDeletes;
+    use HasFactory;
 
-    public function books(){
-        return $this->belongsToMany('App\Models\Book');
+    // relasi many to many dengan categori
+    public function categories(){
+        return $this->belongsToMany('App\Models\Category');
     }
 }
