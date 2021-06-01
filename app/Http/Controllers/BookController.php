@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 class BookController extends Controller
 {
