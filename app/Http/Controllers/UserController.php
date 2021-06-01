@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct(){
+        // OTORISASI GATE
+        $this->middleware(function($request, $next){
+
+            if(Gate::allows('manage-users')) return $next($request);
+          
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +23,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
         $filterKeyword = $request->get('keyword');
 
         $status = $request->get('status');

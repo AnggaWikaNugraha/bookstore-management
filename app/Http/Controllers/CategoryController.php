@@ -8,6 +8,15 @@ use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
+    public function __construct(){
+        // OTORISASI GATE
+        $this->middleware(function($request, $next){
+
+            if(Gate::allows('manage-categories')) return $next($request);
+          
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
     /**
      * Display a listing of the resource.
      *
