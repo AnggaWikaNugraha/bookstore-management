@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,5 @@ Route::delete('/books/{id}/delete-permanent', [BookController::class, 'deletePer
 Route::post('/books/{book}/restore', [BookController::class, 'restore'])->name('books.restore');
 Route::get('/books/trash', [BookController::class, 'trash'])->name('books.trash');
 Route::resource('books', BookController::class);
+
+Route::resource('orders', OrderController::class);
