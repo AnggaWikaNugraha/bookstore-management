@@ -83,7 +83,8 @@
                             <span class="oi oi-people"></span> Manage Users
                         </a>
                     </li>
-                    <li><a href="{{ route('categories.index') }}"><span class="oi oi-tag"></span> Manage Categories</a>
+                    <li><a href="{{ route('categories.index') }}"><span class="oi oi-tag"></span> Manage
+                            Categories</a>
                     </li>
 
                     <div class="d-block d-md-none">
@@ -126,6 +127,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
     </script>
+
+    @yield('footer-scripts')
 </body>
 
 </html>

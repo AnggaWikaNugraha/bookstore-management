@@ -1,4 +1,9 @@
 @extends('layouts.global')
+@section('footer-scripts')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+@endsection
 
 @section('title') Create book @endsection
 
@@ -44,6 +49,13 @@
                 <input type="number" class="form-control" name="price" id="price" placeholder="Book price">
                 <br>
 
+                <label for="categories">Categories</label><br>
+
+                <select name="categories[]" multiple id="categories" class="form-control">
+                </select>
+
+                <br><br />
+
                 <button class="btn btn-primary" name="save_action" value="PUBLISH">Publish</button>
 
                 <button class="btn btn-secondary" name="save_action" value="DRAFT">Save as draft</button>
@@ -51,3 +63,22 @@
         </div>
     </div>
 @endsection
+
+<script>
+    $('#categories').select2({
+        ajax: {
+            url: 'http://larashop.test/ajax/categories/search',
+            processResults: function(data) {
+                return {
+                    results: data.map(function(item) {
+                        return {
+                            id: item.id,
+                            text: item.name
+                        }
+                    })
+                }
+            }
+        }
+    });
+
+</script>

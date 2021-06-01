@@ -14,7 +14,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = \App\Models\Book::with('categories')->paginate(10);
+
+        return view('books.index', ['books'=> $books]);
     }
 
     /**
@@ -55,6 +57,7 @@ class BookController extends Controller
         $new_book->slug = Str::slug($request->get('title'));
         $new_book->created_by = \Auth::user()->id;
         $new_book->save();
+        $new_book->categories()->attach($request->get('categories'));
         if($request->get('save_action') == 'PUBLISH'){
             return redirect()
                   ->route('books.create')
@@ -109,5 +112,13 @@ class BookController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ajaxSearch(Request $request){
+        $keyword = $request->get('q');
+       
+        $categories = \App\Models\Category::where("name", "LIKE", "%$keyword%")->get();
+       
+        return $categories;
     }
 }
