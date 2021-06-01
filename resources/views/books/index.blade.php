@@ -5,6 +5,11 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="row mb-3">
                 <div class="col-md-12 text-right">
                     <a href="{{ route('books.create') }}" class="btn btn-primary">Create book</a>
@@ -51,6 +56,15 @@
                             <td>{{ $book->price }}</td>
                             <td>
                                 <a href="{{ route('books.edit', [$book->id]) }}" class="btn btn-info btn-sm"> Edit </a>
+                                <form method="POST" class="d-inline" onsubmit="return confirm('Move book to trash?')"
+                                    action="{{ route('books.destroy', [$book->id]) }}">
+
+                                    @csrf
+                                    <input type="hidden" value="DELETE" name="_method">
+
+                                    <input type="submit" value="Trash" class="btn btn-danger btn-sm">
+
+                                </form>
                             </td>
                         </tr>
                     @endforeach

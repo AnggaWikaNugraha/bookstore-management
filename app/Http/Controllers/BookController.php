@@ -141,7 +141,10 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = \App\Models\Book::findOrFail($id);
+        $book->delete();
+
+        return redirect()->route('books.index')->with('status', 'Book moved to trash');
     }
 
     public function ajaxSearch(Request $request){
