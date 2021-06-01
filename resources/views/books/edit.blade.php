@@ -97,7 +97,8 @@
                 <br>
 
                 <label for="">Status</label>
-                <select name="status" id="status" class="form-control {{ $errors->first('status') ? 'is-invalid' : '' }}">
+                <select name="status" id="status"
+                    class="form-control {{ $errors->first('status') ? 'is-invalid' : '' }}">
                     <option {{ $book->status == 'PUBLISH' ? 'selected' : '' }} value="PUBLISH">PUBLISH</option>
                     <option {{ $book->status == 'DRAFT' ? 'selected' : '' }} value="DRAFT">DRAFT</option>
                 </select>
@@ -113,9 +114,6 @@
     </div>
 
 @endsection
-
-
-
 @section('footer-scripts')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
@@ -124,7 +122,7 @@
     <script>
         $('#categories').select2({
             ajax: {
-                url: 'http://larashop.test/ajax/categories/search',
+                url: 'http://127.0.0.1:8000/ajax/categories/search',
                 processResults: function(data) {
                     return {
                         results: data.map(function(item) {
