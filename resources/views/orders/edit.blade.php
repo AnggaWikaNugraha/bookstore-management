@@ -3,7 +3,6 @@
 @section('title') Edit order @endsection
 
 @section('content')
-
     <div class="row">
         <div class="col-md-8">
             @if (session('status'))
