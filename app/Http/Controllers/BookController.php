@@ -159,10 +159,25 @@ class BookController extends Controller
         return view('books.trash', ['books' => $books]);
     }
 
+    public function deletePermanent($id){
+        $book = \App\Models\Book::withTrashed()->findOrFail($id);
+      
+        if(!$book->trashed()){
+          return redirect()->route('books.trash')->with('status', 'Book is not in trash!')->with('status_type', 'alert');
+        } else {
+          $book->categories()->detach();
+          $book->forceDelete();
+      
+          return redirect()->route('books.trash')->with('status', 'Book permanently deleted!');
+        }
+      }
+
     public function restore($id){
         $book = \App\Models\Book::withTrashed()->findOrFail($id);
       
         if($book->trashed()){
+            //  kode $book->categories()->detach(); sebelum menggunakan forceDelete()? karena kita ingin menghapus relationship buku yang akan dihapus dengan Category jika ada. 
+            // Jika tidak kita lakukan kita akan mendapatkan error constraint violation dari mysql.
           $book->restore();
           return redirect()->route('books.trash')->with('status', 'Book successfully restored');
         } else {
