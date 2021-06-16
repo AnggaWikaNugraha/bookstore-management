@@ -39,4 +39,4 @@
 - Validasi form dengan Form Request
 - Otorisasi dengan Gate
 - Implementasi Fitur Search
-- responsice website
+- responsive website
